@@ -8,9 +8,26 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Hello',
-      component: mainLayout
+      path: '/main',
+      name: 'hello',
+//    alias: "/",
+      component: resolve => require(['@/components/mainlayout'],resolve)
+//    component: mainLayout
+    },
+    {
+    	path : '/list',
+    	name : 'list',
+    	component: resolve => require(['@/components/List'],resolve)
+    },
+    {
+    	path : '/progressbar/:id',
+    	name : 'progressbar',
+    	component: resolve => require(['@/components/ProgressBar'],resolve)
+    },
+    {
+    	path: '/',
+//  	path: '*',
+    	redirect: '/main'
     }
   ]
 })

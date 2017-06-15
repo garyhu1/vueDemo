@@ -12,18 +12,16 @@ const state = {
        { id: 2, text: '...', done: false }
 	],
 	obj: {
-		msg : "garyhu"
+		msg : "vueDemo"
 	}
 }
 
 const mutations = {
 	UPDATE(state){
-		state.item = 100;
-		alert(state.item);
+		state.item ++;
 	},
 	updateMsg(state,msg){
 		state.obj.msg = msg;
-		alert(state.obj.msg);
 	}
 }
 

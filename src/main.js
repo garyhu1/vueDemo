@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
+//全局使用jquery
+import jQuery from 'jquery';
+//引入bootstrap
+//import './assets/css/bootstrap.min.css';
+//import './assets/js/bootstrap.min';
 
 Vue.config.productionTip = false
 
