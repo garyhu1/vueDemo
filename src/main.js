@@ -10,13 +10,16 @@ import jQuery from 'jquery';
 //import './assets/css/bootstrap.min.css';
 //import './assets/js/bootstrap.min';
 
+// import Mock from './mock';
+// Mock.start();
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: { App }
-})
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: { App }
+});

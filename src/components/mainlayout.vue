@@ -4,10 +4,18 @@
 		<button @click="$store.dispatch('updateData')" class="btn">增加</button><br />
 		<button class="btn">{{ item }}</button><br />
 		<input :value='msg' @input='updateMsg' class="msg"/>
-		<p>{{ msg }}</p>
+		<p @click='toForm' class="pClick">{{ msg }}</p>
 		<button @click="changeBG" class="btn">改变背景色</button><br />
 		<p id="bg">点击按钮会改变背景色</p>
 		<button class="btn" @click="lookData">查看列表</button>
+		<br/>
+		<button class='btn' @click="getTodo">获取数据</button>
+		<div v-for='item in todos'>
+		    <p>
+			   <span>{{item.title}}</span>
+			   <span>{{item.count}}</span>
+			</p>
+		</div>
 	</div>
 </template>
 
@@ -15,10 +23,12 @@
 <script>
 	import item from './item';
 	import { mapState }  from 'vuex';
+    import { getTodoList } from '../api/api';
+
 	export default {
 		data() {
 			return {
-//				item: this.$store.state.item
+				todos: []
 			}
 		},
 		components: {
@@ -43,6 +53,16 @@
 			},
 			lookData() {
 				this.$router.push('list');
+			},
+			getTodo() {
+				this.todos = [{title: "llal",count: 2},{title: "asd",count: 72}]
+				getTodoList({}).then(res => {
+					const TODOS = res.data.todos;
+					this.todos = TODOS;
+				});
+			},
+			toForm() {
+				this.$router.push('form');
 			}
 		}
 	}
